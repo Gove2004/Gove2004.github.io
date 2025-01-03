@@ -6,7 +6,7 @@
     <title>文章 - Blog</title>
     <link rel="stylesheet" href="../css/style.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css/github-markdown.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@11.8.0/styles/github.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js/styles/github.css">
 </head>
 <body>
     <header>
@@ -26,30 +26,38 @@
         <p>&copy; 2024</p>
     </footer>
 
-    <script src="https://cdn.jsdelivr.net/npm/marked@4.3.0/marked.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/highlight.js@11.8.0/lib/highlight.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/highlight.js/highlight.min.js"></script>
     <script src="../js/data.js"></script>
     <script>
-        marked.setOptions({
-            breaks: true,
-            highlight: function(code) {
-                return hljs.highlightAuto(code).value;
+        document.addEventListener('DOMContentLoaded', () => {
+            // 配置 marked
+            marked.setOptions({
+                breaks: true,
+                highlight: function(code) {
+                    return hljs.highlightAuto(code).value;
+                }
+            });
+
+            const id = new URLSearchParams(location.search).get('id');
+            const article = blogData.articles.find(a => a.id === id);
+
+            if (article) {
+                document.title = `${article.title} - Blog`;
+                const contentDiv = document.getElementById('article-content');
+                try {
+                    contentDiv.innerHTML = marked.parse(article.content);
+                    document.querySelectorAll('pre code').forEach(block => {
+                        hljs.highlightBlock(block);
+                    });
+                } catch (error) {
+                    console.error('Error rendering article:', error);
+                    contentDiv.innerHTML = '<p>Error rendering article content.</p>';
+                }
+            } else {
+                location.href = '../index.html';
             }
         });
-
-        const id = new URLSearchParams(location.search).get('id');
-        const article = blogData.articles.find(a => a.id === id);
-
-        if (article) {
-            document.title = `${article.title} - Blog`;
-            const contentDiv = document.getElementById('article-content');
-            contentDiv.innerHTML = marked.parse(article.content);
-            document.querySelectorAll('pre code').forEach(block => {
-                hljs.highlightBlock(block);
-            });
-        } else {
-            location.href = '../index.html';
-        }
     </script>
 </body>
 </html> 

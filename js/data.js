@@ -2,40 +2,38 @@ const blogData = {
     articles: [
         {
             id: '1',
-            title: '关于这个博客',
-            date: '2024-03-20',
+            title: '说明',
+            date: '2025-01-03',
             content: `
-# 关于这个博客
+# 说明
 
-这是一个简单的个人博客，用于记录学习和思考。
+这是一个简单的说明, 因此没什么好说的
 
 ## 特点
 
-1. 极简设计
-2. Markdown 支持
-3. 代码高亮
+1. 极简
+2. Markdown
+3. 代码
             `
         },
         {
             id: '2',
-            title: '学习笔记',
-            date: '2024-03-19',
+            title: '泥看这个',
+            date: '2025-01-03',
             content: `
-# 学习笔记
+# 泥看这个
 
-记录一些学习过程中的心得。
+这是一个简单的说明, 因此没什么好说的
 
 ## 代码示例
 
-\`\`\`javascript
-function hello() {
-    console.log('Hello, World!');
-}
+\`\`\`python
+print('Hello, World!')
 \`\`\`
 
 ## 总结
 
-持续学习，持续记录。
+不知道说什么
             `
         }
     ]
