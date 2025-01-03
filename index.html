@@ -1,63 +1,37 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Website</title>
-    <link rel="stylesheet" href="css.css">
+    <title>Blog</title>
+    <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
     <header>
-        <h1>Welcome to My Website</h1>
-        <nav>
-            <ul>
-                <li><a href="#home">Home</a></li>
-                <li><a href="#about">About</a></li>
-                <li><a href="#services">Services</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
-        </nav>
+        <h1><a href="/">Blog</a></h1>
     </header>
+
     <main>
-        <section id="home">
-            <h2>Home</h2>
-            <p>Welcome to the homepage!</p>
-        </section>
-
-        <section id="about">
-            <h2>About</h2>
-            <p>Learn more about us.</p>
-        </section>
-
-        <section id="services">
-            <h2>Services</h2>
-            <p>Discover our services.</p>
-        </section>
-
-        <section id="contact">
-            <h2>Contact</h2>
-            <p>Get in touch with us.</p>
-        </section>
-
-        <!-- Additional sections for more functionality and interface navigation -->
-        <section id="portfolio">
-            <h2>Portfolio</h2>
-            <p>Check out our work.</p>
-        </section>
-
-        <section id="blog">
-            <h2>Blog</h2>
-            <p>Read our latest articles.</p>
-        </section>
-
-        <section id="faq">
-            <h2>FAQ</h2>
-            <p>Find answers to common questions.</p>
-        </section>
+        <div id="article-list"></div>
     </main>
+
     <footer>
-        <p>&copy; 2023 My Website</p>
+        <p>&copy; 2024</p>
     </footer>
-    <script src="js.js"></script>
+
+    <script src="js/data.js"></script>
+    <script>
+        document.getElementById('article-list').innerHTML = blogData.articles
+            .map(article => `
+                <article class="article-item">
+                    <time>${article.date}</time>
+                    <h2>
+                        <a href="pages/article.html?id=${article.id}">
+                            ${article.title}
+                        </a>
+                    </h2>
+                </article>
+            `).join('');
+    </script>
 </body>
 </html>

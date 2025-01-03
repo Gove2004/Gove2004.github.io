@@ -1,0 +1,107 @@
+/* 基础样式 */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: -apple-system, system-ui, sans-serif;
+    line-height: 1.6;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    color: #333;
+}
+
+/* 头部 */
+header {
+    margin: 40px 0;
+    text-align: center;
+}
+
+header a {
+    color: #333;
+    text-decoration: none;
+    font-size: 1.5em;
+}
+
+/* 文章列表 */
+.article-item {
+    margin-bottom: 30px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #eee;
+}
+
+.article-item time {
+    color: #999;
+    font-size: 0.9em;
+}
+
+.article-item h2 {
+    margin: 10px 0;
+}
+
+.article-item a {
+    color: #333;
+    text-decoration: none;
+}
+
+.article-item a:hover {
+    text-decoration: underline;
+}
+
+/* 文章页面 */
+.article-header {
+    margin-bottom: 40px;
+}
+
+.back-link {
+    color: #666;
+    text-decoration: none;
+    font-size: 1.1em;
+}
+
+.back-link:hover {
+    color: #333;
+}
+
+/* Markdown 内容样式 */
+.markdown-body {
+    color: #24292f !important;
+    background: none !important;
+    padding: 0 !important;
+}
+
+.markdown-body h1 {
+    padding-bottom: 0.3em;
+    border-bottom: 1px solid #eee;
+    margin-bottom: 1em;
+}
+
+.markdown-body h2 {
+    margin-top: 1.5em;
+    margin-bottom: 1em;
+    padding-bottom: 0.3em;
+    border-bottom: 1px solid #eee;
+}
+
+.markdown-body code {
+    background-color: rgba(175, 184, 193, 0.2);
+    padding: 0.2em 0.4em;
+    border-radius: 6px;
+}
+
+.markdown-body pre code {
+    background: none;
+    padding: 16px;
+}
+
+/* 页脚 */
+footer {
+    margin-top: 60px;
+    padding-top: 20px;
+    border-top: 1px solid #eee;
+    text-align: center;
+    color: #999;
+} 
